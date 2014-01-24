@@ -41,7 +41,7 @@ public class PlayerControl2D : MonoBehaviour
 
 		// If the jump button is pressed and the player is grounded then the player should jump.
 		if(Input.GetButtonDown("Jump") && grounded)
-			jump = true;
+ 			jump = true;
 		if( Input.GetKey( KeyCode.E ) )
 		{
 			Slam();
@@ -51,17 +51,13 @@ public class PlayerControl2D : MonoBehaviour
 	void Slam()
 	{
 		slam = true;
-		transform.Translate (-transform.up);
-		if(Physics.Raycast(transform.position, -Vector3.up, 0.5f) )
-		{
-			mainCam.GetComponent<CameraShake>().Shake();
-		}
+		mainCam.GetComponent<CameraShake>().Shake();
 	}
 	void FixedUpdate ()
 	{
 		// Cache the horizontal input.
 		float h = Input.GetAxis("Horizontal");
-
+		h *= -1;
 		// The Speed animator parameter is set to the absolute value of the horizontal input.
 		//anim.SetFloat("Speed", Mathf.Abs(h));
 
