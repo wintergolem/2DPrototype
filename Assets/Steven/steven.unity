@@ -217,7 +217,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 76893104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .571723938, y: .743395805, z: -.96398735}
+  m_LocalPosition: {x: 0, y: 0, z: -.96398735}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 161254388}
@@ -239,6 +239,8 @@ MonoBehaviour:
   maxSpeed: 5
   jumpClips: []
   jumpForce: 850
+  slam: 0
+  mainCam: {fileID: 685319884}
 --- !u!1 &161254387
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +342,7 @@ GameObject:
   - 124: {fileID: 685319882}
   - 81: {fileID: 685319881}
   - 114: {fileID: 685319886}
+  - 114: {fileID: 685319887}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -425,3 +428,16 @@ MonoBehaviour:
   ySmooth: 10
   maxXAndY: {x: 25, y: 0}
   minXAndY: {x: -5, y: -5}
+--- !u!114 &685319887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 685319880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b24d48ef20099c4a810dc5397357a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shake_decay: 0
+  shake_intensity: 0

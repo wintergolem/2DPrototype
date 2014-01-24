@@ -13,6 +13,8 @@ public class PlayerControl2D : MonoBehaviour
 	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
 	public AudioClip[] jumpClips;			// Array of clips for when the player jumps.
 	public float jumpForce = 1000f;			// Amount of force added when the player jumps.
+	public bool slam = false;
+	public Camera mainCam;
 //	public AudioClip[] taunts;				// Array of clips for when the player taunts.
 //	public float tauntProbability = 50f;	// Chance of a taunt happening.
 //	public float tauntDelay = 1f;			// Delay for when the taunt should happen.
@@ -40,9 +42,21 @@ public class PlayerControl2D : MonoBehaviour
 		// If the jump button is pressed and the player is grounded then the player should jump.
 		if(Input.GetButtonDown("Jump") && grounded)
 			jump = true;
+		if( Input.GetKey( KeyCode.E ) )
+		{
+			Slam();
+		}
 	}
 
-
+	void Slam()
+	{
+		slam = true;
+		transform.Translate (-transform.up);
+		if(Physics.Raycast(transform.position, -Vector3.up, 0.5f) )
+		{
+			mainCam.GetComponent<CameraShake>().Shake();
+		}
+	}
 	void FixedUpdate ()
 	{
 		// Cache the horizontal input.
